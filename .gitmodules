@@ -16,3 +16,9 @@
 [submodule "src/templates/layout/partials/blox.partial.footer.quiz"]
 	path = src/templates/layout/partials/blox.partial.footer.quiz
 	url = https://github.com/richjava/blox.partial.footer.quiz.git
+[submodule "src/templates/pages/packages/blox.page-package.quiz"]
+	path = src/templates/pages/packages/blox.page-package.quiz
+	url = https://github.com/richjava/blox.page-package.quiz.git
+[submodule "src/templates/packages/partials/blox.partial-package.navigation"]
+	path = src/templates/packages/partials/blox.partial-package.navigation
+	url = https://github.com/richjava/blox.partial-package.navigation.git
