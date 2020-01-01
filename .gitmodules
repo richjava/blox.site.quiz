@@ -1,0 +1,18 @@
+[submodule "src/templates/pages/blox.page.admin"]
+	path = src/templates/pages/blox.page.admin
+	url = https://github.com/richjava/blox.page.admin.git
+[submodule "src/templates/pages/blox.page.resources"]
+	path = src/templates/pages/blox.page.resources
+	url = https://github.com/richjava/blox.page.resources.quiz.git
+[submodule "src/templates/pages/blox.page.about"]
+	path = src/templates/pages/blox.page.about
+	url = https://github.com/richjava/blox.page.about.quiz.git
+[submodule "src/templates/pages/blox.page.home"]
+	path = src/templates/pages/blox.page.home
+	url = https://github.com/richjava/blox.page.home.quiz.git
+[submodule "src/templates/layout/partials/blox.partial.header.quiz"]
+	path = src/templates/layout/partials/blox.partial.header.quiz
+	url = https://github.com/richjava/blox.partial.header.quiz.git
+[submodule "src/templates/layout/partials/blox.partial.footer.quiz"]
+	path = src/templates/layout/partials/blox.partial.footer.quiz
+	url = https://github.com/richjava/blox.partial.footer.quiz.git
