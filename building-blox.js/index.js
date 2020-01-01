@@ -238,7 +238,6 @@
      */
     connectGlobalBlocks(blocks, connectConfig, blockPath) {
       let self = this;
-
       return new Promise(async function (resolve, reject) {
         let basePath = `${self.projectRoot}/src/templates/packages${blockPath}`;
         for (let i = 0; i < blocks.length; i++) {
@@ -328,7 +327,7 @@
       await this.connectPageLocalBlocks(pageFullName, pageName, `${pagesPath}${currentPagePath}/${pageFullName}`, 'components');
 
       //connect blocks that have global (project-level) scope
-      let connectConfig = await this.getConnectConfig(pageFullName, pageName);
+      let connectConfig = await this.getConnectConfig(pageFullName, pageName, `${this.pagesPath}${currentPagePath}`);
       await this.connectPagePackages(connectConfig);
 
 
@@ -373,12 +372,9 @@
             }
           } else {
             const pageName = self.getShortBlockName(dirName);
-            // let pagePath = self.pagesPath + '/' + dirName;
             let pagePath = `${self.pagesPath}${currentPagePath}/${dirName}`;
             self.entry[pageName] = self.createEntryPaths(pageName);
             let entryConfig = await self.processEntryPoint(pageName, `${pagePath}/${pageName}`, pagePath);
-
-            // let entryConfig = await self.processEntryPoint(pageName, `./src/templates/pages/${dirName}/${pageName}`, pagePath);
             self.bloxConfig[pageName] = self.createBlockConnectionConfig();
             self.bloxConfig[pageName].hasScripts = entryConfig.hasScripts;
             await self.preparePage(dirName, pageName, currentPagePath, entryConfig);
@@ -394,13 +390,12 @@
             //process master-detail pattern
 
             let subDirs = await fsUtil.getDirectories(`${self.pagesPath}${currentPagePath}/${dirName}`);
-            // let isMasterDetail = false;
             // find a subfolder with the name "detail"
             for (let i = 0; i < subDirs.length; i++) {
               let subDir = subDirs[i]
 
               if (subDir === 'detail') {
-                let detailPath = `${self.pagesPath}${currentPagePath}${pageName}/${subDir}`;///path.join(self.pagesPath, pageName, subDir)
+                let detailPath = `${self.pagesPath}${currentPagePath}${pageName}/${subDir}`;
                 if (self.context.db[pageName] && self.context.db[pageName].items) {
                   await self.prepareMasterDetailPages(dirName, pageName, currentPagePath, entryConfig);
                   let detailName = `${pageName}-detail`;
@@ -413,7 +408,6 @@
                       forText: `detail page of ${dirName} master page`,
                       pathText: `/detail/${detailName}`
                     });
-                  // isMasterDetail = true;
                   break;
                 }
               }
@@ -528,21 +522,17 @@
 
           self.pages.push(page);
           resolve();
-          console.log(
-            success(`Blox: Prepared ${paginationOptions.pageFullName} pagination page`)
-          );
         } else {
           resolve();
         }
       })
     }
 
-    getConnectConfig(pageFullName, pageName) {
+    getConnectConfig(pageFullName, pageName, currentPagePath) {
       let self = this;
       return new Promise(async function (resolve, reject) {
-        const pagePath = `src/templates/pages/${pageName}`;
         //page blocks
-        const pageYamlPath = `./src/templates/pages/${pageFullName}/${pageName}.yaml`;
+        const pageYamlPath = `${currentPagePath}/${pageFullName}/${pageName}.yaml`;
         let pageConnectConfig = await self.processBlockConfig(pageName, pageFullName, pageYamlPath);
         //layout blocks
         const layoutYamlPath = `./src/templates/layout/layout.yaml`;
@@ -652,6 +642,9 @@
         detailEntryConfig = await self.processEntryPoint(detailName, `${folderPath}/${detailName}`, folderPath);
 
         let currentPage = 1;
+        console.log(
+          info(`Blox: Preparing ${items.length} master-detail pages for ${pageFullName}...`)
+        );
         for (let i = 0; i < items.length; i++) {
           if (hasDetail) {
             await self.prepareDetailPage(items[i], detailName, pageName, pageFullName, currentPagePath, detailEntryConfig);
@@ -668,7 +661,7 @@
           await self.prepareMasterPage(paginationOptions, currentPagePath, entryConfig)
         }
         console.log(
-          success(`Blox: Prepared ${pageName} detail page`)
+          success(`Blox: Prepared master-detail pages`)
         );
         resolve();
       });

@@ -1,6 +1,13 @@
-@import 'variables';
-@import 'reset';
+/**------------------------------
+  Main Sass File
+-------------------------------*/
 
-body {
-    font-family: monospace;
-}
+/** Import Theme Styles */
+@import "./blox.styles.quiz/variables";
+
+/** Import Bootstrap */
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+/** Import Remaining Theme Styles */
+@import "./blox.styles.quiz/mixins";
+@import "./blox.styles.quiz/global";

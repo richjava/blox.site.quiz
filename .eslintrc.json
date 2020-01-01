@@ -1,3 +1,18 @@
 {
-    "rules": {}
-}
+    "env": {
+      "node": true,
+      "es6": true
+    },
+    "rules": {
+    },
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "script",
+      "ecmaFeatures": {
+        "arrowFunctions": true,
+        "binaryLiterals": true,
+        "blockBindings": true,
+        "classes": true
+      }
+    }
+  }

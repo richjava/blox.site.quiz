@@ -1,0 +1,103 @@
+.mw-600 {
+  @include max-width(600px);
+}
+
+.mw-800 {
+  @include max-width(800px);
+}
+
+.mw-1500 {
+  @include max-width(1500px);
+}
+
+.bg-brand-gradient {
+  @include gradient($brand-primary, $brand-secondary, horizontal);
+}
+
+.brand-underline {
+  @include brand-underline;
+}
+
+.brand-pre-heading {
+  @include brand-pre-heading($brand-secondary);
+}
+
+.brand-post-heading {
+  @include brand-post-heading($brand-secondary);
+}
+
+.btn-primary,
+.btn-secondary {
+  @extend .px-4;
+  @extend .px-lg-7;
+  @extend .py-2;
+  @extend .text-white;
+  @extend .text-uppercase;
+}
+
+.btn-outline-primary {
+  @extend .px-4;
+  @extend .px-lg-7;
+  @extend .py-2;
+  @extend .text-uppercase;
+}
+
+.lead {
+  line-height: 2rem;
+
+  @include media-breakpoint-up(md) {
+    line-height: 2.5rem;
+  }
+}
+
+.subscribe-form {
+  input {
+    @include border-radii(100px, 0, 0, 100px);
+    @extend .p-4;
+    @extend .border-0;
+
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  button {
+    @include border-radii(0, 100px, 100px, 0);
+    @extend .px-3;
+    @extend .px-lg-5;
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
+
+.btn-link {
+  @include headings-font-family;
+  @extend .lead;
+}
+
+.brand-curve {
+  @extend .position-absolute;
+  @extend .w-100;
+
+  background: url("/assets/images/curve.svg") no-repeat;
+  height: 160px;
+  background-size: 101%;
+  content: "";
+}
+
+.brand-strip-bg {
+  background-image: url("/assets/images/line.svg");
+  background-size: 25px 43px;
+}
+
+.btn-gradient {
+  @include gradient($brand-primary, $brand-secondary, horizontal);
+  @extend .btn;
+  @extend .text-white;
+  @extend .border-0;
+  @extend .py-2;
+  @extend .px-6;
+}

@@ -2,16 +2,56 @@
 
 
 /************
-Auto-generated Sass for home page
+Auto-generated Sass for blox.page.home.quiz page
 *************/
-@import "../../src/templates/pages/home/home";
+@import "../../src/templates/pages//blox.page.home.quiz/home";
 
 /************
-Auto-generated Sass for footer block of home page
+Auto-generated Sass for local blox.partial.footer.quiz block of blox.page.home.quiz
 *************/
-@import "../../src/templates/layout/partials/footer/footer";
+@import "../../src/templates/layout/partials/blox.partial.footer.quiz/footer";
 
 /************
-Auto-generated Sass for header block of home page
+Auto-generated Sass for local blox.partial.header.quiz block of blox.page.home.quiz
 *************/
-@import "../../src/templates/layout/partials/header/header";
+@import "../../src/templates/layout/partials/blox.partial.header.quiz/header";
+
+/************
+Auto-generated Sass for local blox.partial.bio.quiz block of blox.page.home.quiz
+*************/
+@import "../../src/templates/pages//blox.page.home.quiz/partials/blox.partial.bio.quiz/bio";
+
+/************
+Auto-generated Sass for local blox.partial.how-it-works.quiz block of blox.page.home.quiz
+*************/
+@import "../../src/templates/pages//blox.page.home.quiz/partials/blox.partial.how-it-works.quiz/how-it-works";
+
+/************
+Auto-generated Sass for local blox.partial.intro.quiz block of blox.page.home.quiz
+*************/
+@import "../../src/templates/pages//blox.page.home.quiz/partials/blox.partial.intro.quiz/intro";
+
+/************
+Auto-generated Sass for local blox.partial.landing.quiz block of blox.page.home.quiz
+*************/
+@import "../../src/templates/pages//blox.page.home.quiz/partials/blox.partial.landing.quiz/landing";
+
+/************
+Auto-generated Sass for global blox.partial.nav.quiz block of blox.page.home.quiz
+*************/
+@import "../../src/templates/packages/partials/blox.partial-package.navigation/blox.partial.nav.quiz/nav";
+
+/************
+Auto-generated Sass for global blox.partial.downloads.quiz block of blox.page.home.quiz
+*************/
+@import "../../src/templates/packages/partials/blox.partial-package.resources/blox.partial.downloads.quiz/downloads";
+
+/************
+Auto-generated Sass for global blox.partial.socialbar.quiz block of blox.page.home.quiz
+*************/
+@import "../../src/templates/packages/partials/blox.partial-package.social/blox.partial.socialbar.quiz/socialbar";
+
+/************
+Auto-generated Sass for global blox.component.bio.quiz block of blox.page.home.quiz
+*************/
+@import "../../src/templates/packages/components/blox.component-package.about/blox.component.bio.quiz/bio";

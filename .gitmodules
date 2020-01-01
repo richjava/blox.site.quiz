@@ -1,15 +1,6 @@
 [submodule "src/templates/pages/blox.page.admin"]
 	path = src/templates/pages/blox.page.admin
 	url = https://github.com/richjava/blox.page.admin.git
-[submodule "src/templates/pages/blox.page.resources"]
-	path = src/templates/pages/blox.page.resources
-	url = https://github.com/richjava/blox.page.resources.quiz.git
-[submodule "src/templates/pages/blox.page.about"]
-	path = src/templates/pages/blox.page.about
-	url = https://github.com/richjava/blox.page.about.quiz.git
-[submodule "src/templates/pages/blox.page.home"]
-	path = src/templates/pages/blox.page.home
-	url = https://github.com/richjava/blox.page.home.quiz.git
 [submodule "src/templates/layout/partials/blox.partial.header.quiz"]
 	path = src/templates/layout/partials/blox.partial.header.quiz
 	url = https://github.com/richjava/blox.partial.header.quiz.git
@@ -22,3 +13,21 @@
 [submodule "src/templates/packages/partials/blox.partial-package.navigation"]
 	path = src/templates/packages/partials/blox.partial-package.navigation
 	url = https://github.com/richjava/blox.partial-package.navigation.git
+[submodule "src/templates/packages/components/blox.component-package.about"]
+	path = src/templates/packages/components/blox.component-package.about
+	url = https://github.com/richjava/blox.component-package.about.git
+[submodule "src/templates/packages/partials/blox.partial-package.social"]
+	path = src/templates/packages/partials/blox.partial-package.social
+	url = https://github.com/richjava/blox.partial-package.social.git
+[submodule "src/templates/packages/partials/blox.partial-package.resources"]
+	path = src/templates/packages/partials/blox.partial-package.resources
+	url = https://github.com/richjava/blox.partial-package.resources.git
+[submodule "src/templates/pages/blox.page.about.quiz"]
+	path = src/templates/pages/blox.page.about.quiz
+	url = https://github.com/richjava/blox.page.about.quiz.git
+[submodule "src/templates/pages/blox.page.home.quiz"]
+	path = src/templates/pages/blox.page.home.quiz
+	url = https://github.com/richjava/blox.page.home.quiz.git
+[submodule "src/templates/pages/blox.page.resources.quiz"]
+	path = src/templates/pages/blox.page.resources.quiz
+	url = https://github.com/richjava/blox.page.resources.quiz.git

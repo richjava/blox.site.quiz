@@ -1,0 +1,107 @@
+@mixin gradient($start-color, $end-color, $orientation) {
+    background: $start-color;
+    @if $orientation == "vertical" {
+      background: -webkit-linear-gradient(top, $start-color, $end-color);
+      background: linear-gradient(to bottom, $start-color, $end-color);
+    } @else if $orientation == "horizontal" {
+      background: -webkit-linear-gradient(left, $start-color, $end-color);
+      background: linear-gradient(to bottom right, $start-color, $end-color);
+    } @else {
+      background: -webkit-radial-gradient(
+        center,
+        ellipse cover,
+        $start-color,
+        $end-color
+      );
+      background: radial-gradient(ellipse at center, $start-color, $end-color);
+    }
+  }
+  
+  @mixin border-radii(
+    $top-left: null,
+    $top-right: null,
+    $bottom-right: null,
+    $bottom-left: null
+  ) {
+    border-radius: $top-left $top-right $bottom-right $bottom-left !important;
+  }
+  
+  @mixin brand-underline {
+    position: relative;
+    text-decoration: none;
+    z-index: 1;
+  
+    &::before,
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: 0.25rem;
+      left: 0;
+      z-index: -1;
+      height: 0.25em;
+      background: $brand-secondary;
+      content: "";
+  
+      @include media-breakpoint-up(md) {
+        bottom: 0.5rem;
+      }
+    }
+  
+    &::after {
+      background: lighten($brand-secondary, 15%);
+      transition: transform 350ms cubic-bezier(0.55, 0, 0.095, 0),
+        -webkit-transform 350ms cubic-bezier(0.55, 0, 0.095, 0);
+      transform: scaleX(0);
+      transform-origin: right center;
+      will-change: transform;
+    }
+  
+    &:hover::after {
+      transform: scaleX(1);
+      transform-origin: left center;
+    }
+  }
+  
+  @mixin max-width($width) {
+    max-width: $width;
+  }
+  
+  @mixin headings-font-family {
+    font-family: "Futura", "Trebuchet MS", Arial, sans-serif;
+  }
+  
+  @mixin brand-pre-heading($color) {
+    position: relative;
+  
+    &::before {
+      position: absolute;
+      top: -25px;
+      left: 0;
+      width: 75px;
+      height: 5px;
+      background: $color;
+      content: "";
+  
+      @include media-breakpoint-up(xl) {
+        left: -120px;
+        width: 175px;
+      }
+    }
+  }
+  
+  @mixin brand-post-heading($color) {
+    position: relative;
+  
+    &::after {
+      position: absolute;
+      bottom: -50px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 125px;
+      height: 5px;
+      background: $color;
+      content: "";
+    }
+  }
+  
