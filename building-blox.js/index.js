@@ -81,7 +81,6 @@
       this.entryPaths = options.entryPaths ? options.entryPaths : this.defaultEntryPaths;
       this.itemsPerPage = options.itemsPerPage ? options.itemsPerPage : this.defaultItemsPerPage;
       this.data = options.data || {};
-      console.log('------------->project root:', this.dataPath)
     }
 
     /**
