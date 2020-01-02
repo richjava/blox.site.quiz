@@ -56,6 +56,7 @@
     options;
 
     projectRoot = path.join(__dirname, '../');
+    
     templatesPath = `${this.projectRoot}src/templates`;
     pagesPath = `${this.templatesPath}/pages`;
     dataPath = `${this.projectRoot}src/data/`;
@@ -80,7 +81,7 @@
       this.entryPaths = options.entryPaths ? options.entryPaths : this.defaultEntryPaths;
       this.itemsPerPage = options.itemsPerPage ? options.itemsPerPage : this.defaultItemsPerPage;
       this.data = options.data || {};
-
+      console.log('------------->project root:', this.dataPath)
     }
 
     /**

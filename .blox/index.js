@@ -30,9 +30,9 @@ require('../src/templates/packages/partials/blox.partial-package.resources/blox.
 require('../src/templates/packages/partials/blox.partial-package.social/blox.partial.socialbar.quiz/images/facebook-icon.svg');
 require('../src/templates/packages/partials/blox.partial-package.social/blox.partial.socialbar.quiz/images/youtube-icon.svg');
 
+require('../src/templates/packages/components/blox.component-package.about/blox.component.bio.quiz/images/bio.jpg');
 require('../src/templates/packages/components/blox.component-package.about/blox.component.bio.quiz/images/facebook-icon-dark.svg');
 require('../src/templates/packages/components/blox.component-package.about/blox.component.bio.quiz/images/facebook-icon.svg');
-require('../src/templates/packages/components/blox.component-package.about/blox.component.bio.quiz/images/graeme-bishop.jpg');
 require('../src/templates/packages/components/blox.component-package.about/blox.component.bio.quiz/images/line.svg');
 require('../src/templates/packages/components/blox.component-package.about/blox.component.bio.quiz/images/youtube-icon-dark.svg');
 require('../src/templates/packages/components/blox.component-package.about/blox.component.bio.quiz/images/youtube-icon.svg');

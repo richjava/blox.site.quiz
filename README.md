@@ -10,6 +10,7 @@ A [Building Blox](https://github.com/Building-Blox/building-blox) informational/
 - Bio section with light & dark theme
 - Newsletter signup
 - Resources download section & page
+- Content management admin page
 
 ## Dependencies
 - Bootstrap
@@ -20,32 +21,42 @@ Informational/Brochure
 
 ## Blocks
 ### Pages
-- home [blox.page.home.quiz]()
-- about [blox.page.about.quiz]()
-- resources [blox.page.resources.quiz]()
-- admin - [blox.page.admin]()
+- home [blox.page.home.quiz](https://github.com/richjava/blox.page.home.quiz)
+
+![Landing Partial](https://building-blox.s3.amazonaws.com/quiz/landing.PNG)
+
+- about [blox.page.about.quiz](https://github.com/richjava/blox.page.about.quiz)
+
+![About Page](https://building-blox.s3.amazonaws.com/quiz/about-page.PNG)
+
+- resources [blox.page.resources.quiz](https://github.com/richjava/blox.page.resources.quiz)
+
+![Resources Page](https://building-blox.s3.amazonaws.com/quiz/resources-page.PNG)
+
+- admin - [blox.page.admin](https://github.com/richjava/blox.page.admin)
+
+![Admin Page](https://building-blox.s3.amazonaws.com/quiz/admin-page.PNG)
 
 ### Packages
 #### Page packages
-- quiz [blox.package.quiz.quiz]()
+- quiz [blox.package.quiz.quiz](https://github.com/richjava/blox.page-package.quiz)
 
 #### Partial packages
-- navigation [blox.partial-package.navigation]()
-- resources [blox.partial-package.resources]()
-- social [blox.partial-package.social]()
+- navigation [blox.partial-package.navigation](https://github.com/richjava/blox.partial-package.navigation)
+- resources [blox.partial-package.resources](https://github.com/richjava/blox.partial-package.resources)
+- social [blox.partial-package.social](https://github.com/richjava/blox.partial-package.social)
 
 #### Component packages
-- about [blox.component-package.about]()
+- about [blox.component-package.about](https://github.com/richjava/blox.component-package.about)
 
 ### Lambdas
-- google-sheets [blox.lambda.google-sheets.quiz]
+- google-sheets [blox.lambda.google-sheets.quiz]()
 
 ## Installation
-### 1. Use this template (click the green "Use this template" button) or,
-#### Clone this repository
-Make sure to include the ```--recursive``` flag so that all the submodules ("blocks") will be cloned too.
+### 1. Clone this repository
+Make sure to include the ```--recurse-submodules``` flag so that all the submodules ("blocks") will be cloned too.
 ```
-git clone https://github.com/richjava/blox.site.quiz.git --recursive
+git clone --recurse-submodules -j8 https://github.com/richjava/blox.site.quiz.git
 
 cd building-blox
 ```
@@ -67,7 +78,7 @@ npm link
 cd ..
 ````
 ````
-npm link building-blox
+npm link building-blox.js
 ````
 
 ### 3. Run the development server
