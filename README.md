@@ -61,7 +61,8 @@ git clone --recurse-submodules -j8 https://github.com/richjava/blox.site.quiz.gi
 cd building-blox
 ```
 
-### 2. Install packages
+### 2. Install blocks
+This may take longer than usual depending on how many blocks (git submodules) your site contains.
 ```
 npm install
 ```
@@ -71,6 +72,9 @@ NOTE: building-blox.js library is not an NPM package yet so to run the project, 
 ````
 cd building-blox.js
 ````
+```
+npm install
+```
 ````
 npm link
 ````
