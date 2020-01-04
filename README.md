@@ -54,15 +54,16 @@ Informational/Brochure
 
 ## Installation
 ### 1. Clone this repository
-Make sure to include the ```--recurse-submodules``` flag so that all the submodules ("blocks") will be cloned too.
+> This may take longer than usual depending on how many blocks (git submodules) your site contains.
+
+Make sure to include the ```--recurse-submodules``` flag so that all the submodules will be cloned too.
 ```
 git clone --recurse-submodules -j8 https://github.com/richjava/blox.site.quiz.git
 
 cd building-blox
 ```
 
-### 2. Install blocks
-This may take longer than usual depending on how many blocks (git submodules) your site contains.
+### 2. Install dependencies
 ```
 npm install
 ```
@@ -90,3 +91,6 @@ npm link building-blox.js
 npm run dev
 ```
 The website will be viewable at http://localhost:3000. On save of the project, output will be built to the "dist" directory and the website will be reloaded.
+
+## Credits
+Thanks to [Kieran Roberts](https://github.com/KieranRoberts44) for the awesome design.
