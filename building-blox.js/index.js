@@ -56,7 +56,7 @@
     options;
 
     projectRoot = path.join(__dirname, '../');
-    
+
     templatesPath = `${this.projectRoot}src/templates`;
     pagesPath = `${this.templatesPath}/pages`;
     dataPath = `${this.projectRoot}src/data/`;
@@ -74,6 +74,7 @@
     defaultEntryPaths = [
       "./.blox/index.js"
     ];
+    
     defaultItemsPerPage = 50;
 
     constructor(options = {}) {
@@ -204,7 +205,7 @@
             if (dirs) {
               for (let i = 0; i < dirs.length; i++) {
                 let blockFullName = dirs[i];
-                let blockName = self.getShortBlockName(blockFullName);
+                let blockName = self.getBlockName(blockFullName);
                 await self.connectImages(blockFullName, `${currentBlockPath}/${blockType}`);
 
                 let hasSass = await fsUtil.contains(`${self.templatesPath}${currentBlockPath}/${blockType}/${blockFullName}`, self.patterns.sass);
@@ -242,7 +243,7 @@
         let basePath = `${self.projectRoot}/src/templates/packages${blockPath}`;
         for (let i = 0; i < blocks.length; i++) {
           const blockFullName = blocks[i].name;
-          const blockName = self.getShortBlockName(blockFullName);
+          const blockName = self.getBlockName(blockFullName);
           await self.connectImages(blockFullName, `/packages${blockPath}`);
           self.bloxConfig[connectConfig.pageName].sass += self.getSassContent(
             `global ${blockFullName} block of ${connectConfig.pageFullName}`,
@@ -339,9 +340,17 @@
       );
     }
 
-    getShortBlockName(fullBlockName) {
+    /**
+     * Calculates and returns the block name.
+     * If a block is a submodule, it will have the following name convention:
+     * blox.<block_type>.<block_name>.<optional_site_name>
+     * The block name will be stripped from this and returned.
+     * If it is not a submodule, it will just return the block name that was given.
+     * @param {String} fullBlockName 
+     */
+    getBlockName(fullBlockName) {
       if (!fullBlockName.match(/^((packages)|(blox.(page|partial|component|package).[a-z0-9]+))/)) {
-        throw new Error(`Blox: Full block name "${fullBlockName}" should start with this format "blox.<block-type>.<block-name>"`)
+        return fullBlockName;
       }
       const startSubstring = fullBlockName.substring(fullBlockName.indexOf('.', fullBlockName.indexOf('.') + 1) + 1, fullBlockName.length);//fullBlockName.substring(fullBlockName.indexOf('.') + 1, fullBlockName.length)
       const dotIndex = startSubstring.indexOf('.');
@@ -350,8 +359,10 @@
     }
 
     /**
-    * Prepare all templates for generation.
-    */
+     * Prepare all templates for generation.
+     * @param {Array} pageDirs 
+     * @param {String} currentPagePath 
+     */
     async prepareTemplates(pageDirs, currentPagePath = '/') {
       let self = this;
       return new Promise(async (resolve) => {
@@ -371,7 +382,7 @@
               await self.prepareTemplates(packagePages, currentPath);
             }
           } else {
-            const pageName = self.getShortBlockName(dirName);
+            const pageName = self.getBlockName(dirName);
             let pagePath = `${self.pagesPath}${currentPagePath}/${dirName}`;
             self.entry[pageName] = self.createEntryPaths(pageName);
             let entryConfig = await self.processEntryPoint(pageName, `${pagePath}/${pageName}`, pagePath);
@@ -528,22 +539,34 @@
       })
     }
 
+    /**
+     * Get configuration object used to connect global styles and scripts.
+     * @param {String} pageFullName 
+     * @param {String} pageName 
+     * @param {String} currentPagePath 
+     */
     getConnectConfig(pageFullName, pageName, currentPagePath) {
       let self = this;
       return new Promise(async function (resolve, reject) {
         //page blocks
         const pageYamlPath = `${currentPagePath}/${pageFullName}/${pageName}.yaml`;
-        let pageConnectConfig = await self.processBlockConfig(pageName, pageFullName, pageYamlPath);
+        let pageConnectConfig = await self.processConnectConfig(pageName, pageFullName, pageYamlPath);
         //layout blocks
         const layoutYamlPath = `./src/templates/layout/layout.yaml`;
-        let layoutConnectConfig = await self.processBlockConfig(pageName, 'layout', layoutYamlPath);
+        let layoutConnectConfig = await self.processConnectConfig(pageName, 'layout', layoutYamlPath);
         pageConnectConfig.partialPackages = [...pageConnectConfig.partialPackages, ...layoutConnectConfig.partialPackages];
         pageConnectConfig.componentPackages = [...pageConnectConfig.componentPackages, ...layoutConnectConfig.componentPackages];
         resolve(pageConnectConfig);
       })
     }
 
-    processBlockConfig(pageName, pageFullName, path) {
+    /**
+     * Process creation of configuration object used to connect global styles and scripts.
+     * @param {String} pageName 
+     * @param {String} pageFullName 
+     * @param {String} path 
+     */
+    processConnectConfig(pageName, pageFullName, path) {
       return new Promise((resolve, reject) => {
         let blockConfig = {
           partialPackages: [],
@@ -573,6 +596,9 @@
       })
     }
 
+    /**
+     * Get the App data from the app.yaml file.
+     */
     getAppData() {
       let self = this;
       return new Promise(async function (resolve, reject) {
@@ -593,6 +619,15 @@
       })
     }
 
+    /**
+     * Prepare the detail page for the master-detail pattern.
+     * @param {Obect} item 
+     * @param {String} detailName 
+     * @param {String} pageName 
+     * @param {String} pageFullName 
+     * @param {String} currentPagePath 
+     * @param {Object} detailEntryConfig 
+     */
     prepareDetailPage(item, detailName, pageName, pageFullName, currentPagePath, detailEntryConfig) {
       let self = this;
       return new Promise(async (resolve) => {

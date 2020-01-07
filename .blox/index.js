@@ -11,6 +11,7 @@ require('../src/templates/layout/partials/blox.partial.footer.quiz/images/curve.
 require('../src/templates/layout/partials/blox.partial.footer.quiz/images/facebook-icon.svg');
 require('../src/templates/layout/partials/blox.partial.footer.quiz/images/youtube-icon.svg');
 
+require('../src/templates/pages//blox.page.home.quiz/partials/blox.partial.bio.quiz/images/bio.jpg');
 require('../src/templates/pages//blox.page.home.quiz/partials/blox.partial.bio.quiz/images/curve.svg');
 
 require('../src/templates/pages//blox.page.home.quiz/partials/blox.partial.how-it-works.quiz/images/questions.svg');
@@ -19,8 +20,8 @@ require('../src/templates/pages//blox.page.home.quiz/partials/blox.partial.how-i
 
 require('../src/templates/pages//blox.page.home.quiz/partials/blox.partial.intro.quiz/images/matchsticks.png');
 
-require('../src/templates/pages//blox.page.home.quiz/partials/blox.partial.landing.quiz/images/burnout-advice-banner-lg.jpg');
-require('../src/templates/pages//blox.page.home.quiz/partials/blox.partial.landing.quiz/images/burnout-advice-banner-sm.jpg');
+require('../src/templates/pages//blox.page.home.quiz/partials/blox.partial.landing.quiz/images/banner-lg.jpg');
+require('../src/templates/pages//blox.page.home.quiz/partials/blox.partial.landing.quiz/images/banner-sm.jpg');
 require('../src/templates/pages//blox.page.home.quiz/partials/blox.partial.landing.quiz/images/curve.svg');
 
 require('../src/templates/pages//blox.page.home.quiz/partials/blox.partial.resources.quiz/images/arrow-icon.svg');
