@@ -60,7 +60,7 @@ Make sure to include the ```--recurse-submodules``` flag so that all the submodu
 ```
 git clone --recurse-submodules -j8 https://github.com/richjava/blox.site.quiz.git
 
-cd building-blox
+cd blox.site.quiz
 ```
 
 ### 2. Install dependencies
