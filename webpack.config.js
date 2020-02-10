@@ -35,7 +35,7 @@ module.exports = async (env, argv) => {
           test: /\.njk$/,
           use: [
             {
-              loader: `nunjucks-isomorphic-loader`,
+              loader: `nunjucks-isomorphic-loader-ext`,
               query: {
                 root: [path.resolve(__dirname, './src/templates')]
               }
